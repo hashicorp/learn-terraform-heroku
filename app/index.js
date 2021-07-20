@@ -26,7 +26,7 @@ app.get('/db', async (_, res) => {
     })
 })
 
-app.get('/db/seed', async (_, res) => {
+app.post('/db/seed', async (_, res) => {
   db.any('CREATE TABLE test_table(id SERIAL PRIMARY KEY, key VARCHAR NOT NULL UNIQUE, value VARCHAR);')
     .then(_ => {
       res.send("Successfully seeded database");
