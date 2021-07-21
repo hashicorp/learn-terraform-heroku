@@ -27,6 +27,10 @@ resource "heroku_build" "example" {
   source {
     path = "./app"
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # Launch the app's web process by scaling-up
